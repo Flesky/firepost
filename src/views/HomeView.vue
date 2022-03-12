@@ -16,7 +16,7 @@ posts.value = await getPosts();
     <TopBar>
       <template #title>Home</template>
     </TopBar>
-    <div>
+    <div class="mt-14">
       <post-component v-for="(post, i) in posts" :key="i" :post="post" />
     </div></div>
 </template>

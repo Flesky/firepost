@@ -4,6 +4,7 @@ import ComposeView from "@/views/ComposeView.vue";
 import LoginView from "@/views/LoginView.vue";
 import RegisterView from "@/views/RegisterView.vue";
 import ProfileView from "@/views/ProfileView.vue";
+import AboutView from "@/views/AboutView.vue";
 import { getCurrentUser } from "@/utils/userStore";
 import { dismissError } from "@/utils/errorStore";
 
@@ -47,6 +48,11 @@ const router = createRouter({
       name: "Profile",
       component: ProfileView,
       props: true,
+    },
+    {
+      path: "/about",
+      name: "About",
+      component: AboutView,
     },
   ],
 });

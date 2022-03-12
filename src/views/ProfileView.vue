@@ -10,6 +10,9 @@ import {
   getUserDocumentFromUsername,
   userStore,
 } from "@/utils/userStore";
+import { getPosts } from "@/utils/feedUtils";
+import { ref } from "vue";
+import PostComponent from "@/components/PostItem.vue";
 
 const router = useRouter();
 
@@ -31,8 +34,13 @@ function handleLogout() {
 //   deleteUser(auth.currentUser!).then(() => router.push("/"))
 //     .catch((error) => (errorStore.value = error));;
 // }
-const userDocument: UserDocument = await getUserDocumentFromUsername(props.username!)
+const userDocument: UserDocument = await getUserDocumentFromUsername(
+  props.username!
+);
 const userData = Object.values(userDocument)[0] as UserData;
+
+const posts = ref<Array<PostDocument>>([]);
+posts.value = await getPosts(userStore.value!.uid);
 </script>
 
 <template>
@@ -43,12 +51,19 @@ const userData = Object.values(userDocument)[0] as UserData;
         <button @click="handleLogout">Sign out</button></template
       >
     </TopBar>
-    <div class="flex p-4 border-b">
-      <img v-if="userData.photoURL" class="w-24 h-24" :src="userData.photoURL" />
+    <div class="flex p-4 border-b mt-14">
+      <img
+        class="w-24 h-24"
+        src="@/assets/user.png"
+      />
       <div class="ml-4">
         <div class="text-2xl">{{ userData.name }}</div>
         <div class="mt-1 text-gray-500">@{{ userData.username }}</div>
       </div>
+    </div>
+    <div>
+      <h1 class="p-4 ">Your posts</h1>
+      <post-component v-for="(post, i) in posts" :key="i" :post="post" />
     </div>
   </div>
 </template>

@@ -29,8 +29,14 @@ function validate() {
   if (password.value) password.feedback = undefined;
   else password.feedback = "Please provide a password.";
 
-  if (email.feedback) return emailField.value?.$refs.input.focus();
-  if (password.feedback) return passwordField.value?.$refs.input.focus();
+  if (email.feedback) {
+    emailField.value?.$refs.input.focus();
+    return true
+  }
+  if (password.feedback) {
+    passwordField.value?.$refs.input.focus();
+    return true
+  };
 }
 
 function handleLogin() {
@@ -49,7 +55,10 @@ function handleLogin() {
 </script>
 
 <template>
-  <div class="p-4">
+  <div class="p-4 mx-auto flex flex-col items-center pt-12">
+    <h1>Login</h1>
+    <div class="mt-3 text-lg">Log in to your account</div>
+
     <form @submit.prevent="handleLogin">
       <input-component
         id="email"
@@ -72,6 +81,10 @@ function handleLogin() {
       <button type="submit">Log in</button>
     </form>
 
-    <router-link to="/register">Create an account</router-link>
+    <button class="btn-secondary">
+      <router-link to="/register">Create an account</router-link>
+    </button>
+
+    <router-link to="/about" class="mt-4 py-2 underline">About this application</router-link>
   </div>
 </template>

@@ -2,7 +2,7 @@
     <button
       class="w-full h-full flex items-center justify-center p-2"
       @click="navigate"
-      :class="[isActive ? 'bg-blue-500 fill-white' : '' ]"
+      :class="[isActive ? 'bg-violet-500 fill-white' : '' ]"
     >
      <slot> </slot></button
   >

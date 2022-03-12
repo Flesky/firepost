@@ -3,15 +3,29 @@
 @tailwind components;
 
 form {
-  @apply flex flex-col;
+  @apply flex flex-col max-w-sm w-full mx-auto;
+}
+
+button[type="submit"] {
+  @apply bg-violet-500 text-white rounded px-3 py-2 font-medium mt-8;
+}
+
+.btn-secondary {
+  @apply bg-gray-200 text-purple-700 rounded px-3 py-2 mt-4 font-medium max-w-sm w-full;
 }
 
 svg[viewBox="0 0 24 24"] {
-  @apply w-8 h-8
+  @apply w-8 h-8;
 }
 
-html, body, #app {
-  @apply h-full
+html,
+body,
+#app {
+  @apply h-full;
+}
+
+h1 {
+  @apply text-2xl font-bold;
 }
 
 .bar {

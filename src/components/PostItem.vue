@@ -20,11 +20,14 @@ const timeAgo = computed(() => {
 </script>
 
 <template>
-    <div class="p-4 border-b">
-      <div>
+  <div class="p-4 border-b">
+    <div class="flex">
+      <img class="w-14 h-14" src="@/assets/user.png" />
+      <div class="flex flex-col ml-3">
         <span class="font-medium">{{ name }}</span>
-        <span class="text-gray-500 ml-1">@{{ username }} · {{ timeAgo }}</span>
+        <span class="text-gray-500">@{{ username }} · {{ timeAgo }}</span>
+        <p class="mt-3">{{ data.text }}</p>
       </div>
-      <p>{{ data.text }}</p>
     </div>
+  </div>
 </template>

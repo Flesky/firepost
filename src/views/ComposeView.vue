@@ -32,22 +32,25 @@ function handleCompose() {
 </script>
 
 <template>
-  <form @submit.prevent="handleCompose">
+  <div>
     <TopBar>
       <template #title>Compose</template>
-      <template #actions> <button type="submit">Post</button></template>
+      <template #actions> <button type="submit" @click="handleCompose">Post</button></template>
     </TopBar>
-    <textarea
+    <textarea class="mt-14"
       ref="textarea"
       v-model="text"
       rows="20"
       placeholder="What's on your mind?"
     />
-  </form>
+  </div>
 </template>
 
 <style scoped>
 textarea {
   @apply focus:outline-none w-full resize-none p-4;
+}
+button[type=submit] {
+  @apply mt-0
 }
 </style>

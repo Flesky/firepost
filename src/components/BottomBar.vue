@@ -17,7 +17,7 @@ const username = (Object.values(userDocument)[0] as UserData).username
 
 <template>
   <nav
-    class="bar border-t p-1 grid grid-cols-4 justify-items-center"
+    class="bar border-t p-1 grid grid-cols-3 justify-items-center"
   >
     <router-link custom to="/" v-slot="{ navigate, isActive }">
       <IconButton :isActive="isActive"  @click="navigate">
@@ -40,11 +40,11 @@ const username = (Object.values(userDocument)[0] as UserData).username
       </IconButton>
     </router-link>
 
-    <router-link custom to="/settings" v-slot="{ navigate, isActive }">
-      <IconButton :isActive="isActive" @click="navigate">
-        <IconCogSolid v-if="isActive" />
-        <IconCog v-else />
-      </IconButton>
-    </router-link>
+<!--    <router-link custom to="/settings" v-slot="{ navigate, isActive }">-->
+<!--      <IconButton :isActive="isActive" @click="navigate">-->
+<!--        <IconCogSolid v-if="isActive" />-->
+<!--        <IconCog v-else />-->
+<!--      </IconButton>-->
+<!--    </router-link>-->
   </nav>
 </template>

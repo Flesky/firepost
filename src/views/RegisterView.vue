@@ -53,10 +53,22 @@ function validate() {
       password.feedback = "Your password must be at least 6 characters long.";
   } else password.feedback = "Please provide a password.";
 
-  if (name.feedback) return nameField.value?.$refs.input.focus();
-  if (username.feedback) return usernameField.value?.$refs.input.focus();
-  if (email.feedback) return emailField.value?.$refs.input.focus();
-  if (password.feedback) return passwordField.value?.$refs.input.focus();
+  if (name.feedback) {
+    nameField.value?.$refs.input.focus();
+    return true;
+  }
+  if (username.feedback) {
+    usernameField.value?.$refs.input.focus();
+    return true;
+  }
+  if (email.feedback) {
+    emailField.value?.$refs.input.focus();
+    return true;
+  }
+  if (password.feedback) {
+    passwordField.value?.$refs.input.focus();
+    return true;
+  }
 }
 
 function handleRegister() {
@@ -89,8 +101,9 @@ function handleRegister() {
 </script>
 
 <template>
-  <div class="p-4">
+  <div class="p-4 mx-auto flex flex-col items-center pt-12">
     <h1>Register</h1>
+    <div class="mt-3 text-lg">Create an account</div>
 
     <form @submit.prevent="handleRegister">
       <input-component
@@ -143,6 +156,10 @@ function handleRegister() {
       <button type="submit">Sign up</button>
     </form>
 
-    <router-link to="/login">I have an account</router-link>
+    <button class="btn-secondary">
+      <router-link to="/login">I have an account</router-link>
+    </button>
+
+    <router-link to="/about" class="mt-4 py-2 underline">About this application</router-link>
   </div>
 </template>

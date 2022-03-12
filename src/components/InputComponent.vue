@@ -3,6 +3,7 @@ defineProps({
   modelValue: String,
   feedback: String,
   id: String,
+  disabled: Boolean,
   type: {
     type: String,
     default: "text",
@@ -18,6 +19,7 @@ defineEmits(["update:modelValue"]);
     <input
       :id="id"
       :type="type"
+      :disabled="disabled"
       ref="input"
       :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)"
@@ -32,7 +34,8 @@ label {
   @apply space-y-2 mt-6;
 }
 input {
-  @apply w-full border focus:outline-none rounded px-3 py-2 focus:ring-purple-500 focus:ring-1 focus:border-purple-500;
+  @apply w-full border focus:outline-none rounded px-3 py-2 focus:ring-purple-500 focus:ring-1 focus:border-purple-500
+  disabled:bg-gray-300;
 }
 .helper {
   @apply text-gray-500;

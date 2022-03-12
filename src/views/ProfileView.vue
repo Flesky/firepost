@@ -28,28 +28,20 @@ function handleLogout() {
     })
     .catch((error) => (errorStore.value = error));
 }
-//
-// function handleDeleteUser() {
-//   const auth = getAuth();
-//   deleteUser(auth.currentUser!).then(() => router.push("/"))
-//     .catch((error) => (errorStore.value = error));;
-// }
+
 const userDocument: UserDocument = await getUserDocumentFromUsername(
   props.username!
 );
 const userData = Object.values(userDocument)[0] as UserData;
 
 const posts = ref<Array<PostDocument>>([]);
-posts.value = await getPosts(userStore.value!.uid);
+posts.value = await getPosts(Object.keys(userDocument)[0]);
 </script>
 
 <template>
   <div>
     <TopBar>
       <template #title>Profile</template>
-      <template #actions>
-        <button @click="handleLogout">Sign out</button></template
-      >
     </TopBar>
     <div class="flex p-4 border-b mt-14">
       <img
@@ -62,7 +54,7 @@ posts.value = await getPosts(userStore.value!.uid);
       </div>
     </div>
     <div>
-      <h1 class="p-4 ">Your posts</h1>
+      <h1 class="p-4 ">Posts</h1>
       <post-component v-for="(post, i) in posts" :key="i" :post="post" />
     </div>
   </div>

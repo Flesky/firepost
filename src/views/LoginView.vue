@@ -50,7 +50,7 @@ function handleLogin() {
     .then(() => {
       router.push("/");
     })
-    .catch((error) => (errorStore.value = error));
+    .catch((error) => (errorStore.value = error.code));
 }
 </script>
 

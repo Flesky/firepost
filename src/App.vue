@@ -43,7 +43,7 @@ const splash = ref(true);
       <div class="h-full overflow-y-auto">
         <div class="p-4 bg-red-800" v-if="errorStore" @click="dismissError">
           <p class="text-white">
-            {{ errorStore }}
+            {{ {"auth/user-not-found": "User not found.", "auth/wrong-password": "Wrong password"}[errorStore] || errorStore }}
           </p>
           <p class="text-xs text-red-200 mt-2">Click to dismiss</p>
         </div>

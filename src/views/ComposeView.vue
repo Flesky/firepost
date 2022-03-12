@@ -40,7 +40,7 @@ function handleCompose() {
     <textarea class="mt-14"
       ref="textarea"
       v-model="text"
-      rows="20"
+      rows="10"
       placeholder="What's on your mind?"
     />
   </div>
@@ -48,7 +48,7 @@ function handleCompose() {
 
 <style scoped>
 textarea {
-  @apply focus:outline-none w-full resize-none p-4;
+  @apply focus:outline-none w-full resize-none p-4 text-lg;
 }
 button[type=submit] {
   @apply mt-0

@@ -5,6 +5,7 @@ import LoginView from "@/views/LoginView.vue";
 import RegisterView from "@/views/RegisterView.vue";
 import ProfileView from "@/views/ProfileView.vue";
 import AboutView from "@/views/AboutView.vue";
+import SettingsView from "@/views/SettingsView.vue";
 import { getCurrentUser } from "@/utils/userStore";
 import { dismissError } from "@/utils/errorStore";
 
@@ -53,6 +54,11 @@ const router = createRouter({
       path: "/about",
       name: "About",
       component: AboutView,
+    },
+    {
+      path: "/settings",
+      name: "Settings",
+      component: SettingsView,
     },
   ],
 });

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="fixed inset-0 z-20 bg-violet-500 w-full h-full items-center flex flex-col justify-center text-center"
+    class="fixed inset-0 z-50 bg-violet-500 w-full h-full items-center flex flex-col justify-center text-center"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"

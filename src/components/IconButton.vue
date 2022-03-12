@@ -1,6 +1,6 @@
 <template>
     <button
-      class="w-full h-full flex items-center justify-center p-2"
+      class="w-full h-full rounded flex items-center justify-center p-2"
       @click="navigate"
       :class="[isActive ? 'bg-violet-500 fill-white' : '' ]"
     >
